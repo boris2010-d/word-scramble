@@ -21,16 +21,36 @@ namespace word_scramble
 
         bool darkMode = false;
 
+        // Речници за оригиналните цветове
+        Dictionary<Control, Color> originalBackColors = new Dictionary<Control, Color>();
+        Dictionary<Control, Color> originalForeColors = new Dictionary<Control, Color>();
+        Color originalFormBackColor;
+
         public IndexForm()
         {
             InitializeComponent();
 
-            words = File.ReadAllLines("words.txt")
-                         .Where(w => !string.IsNullOrWhiteSpace(w))
-                         .Select(w => w.Trim().ToLower())
-                         .ToList();
+            originalFormBackColor = this.BackColor;
 
-            LoadNewWord();
+            // Записваме оригиналните цветове веднага при стартиране
+            foreach (Control c in GetAllControls(this))
+            {
+                originalBackColors[c] = c.BackColor;
+                originalForeColors[c] = c.ForeColor;
+            }
+
+            if (File.Exists("words.txt"))
+            {
+                words = File.ReadAllLines("words.txt")
+                             .Where(w => !string.IsNullOrWhiteSpace(w))
+                             .Select(w => w.Trim().ToLower())
+                             .ToList();
+            }
+
+            if (words.Count > 0)
+            {
+                LoadNewWord();
+            }
         }
 
         string Scramble(string word)
@@ -40,6 +60,7 @@ namespace word_scramble
 
         void LoadNewWord()
         {
+            if (words.Count == 0) return;
             currentWord = words[random.Next(words.Count)].Trim().ToLower();
             scrambledWord = Scramble(currentWord);
             labelScrambledWord.Text = scrambledWord;
@@ -96,10 +117,20 @@ namespace word_scramble
             {
                 this.BackColor = Color.FromArgb(30, 30, 30);
 
-                foreach (Control c in this.Controls)
+                foreach (Control c in GetAllControls(this))
                 {
                     if (c is Label)
+                    {
                         c.ForeColor = Color.White;
+
+                        // Директно хващаме трите кутийки с числата по име и им махаме кубичния фон
+                        if (c.Name == "labelAttemptsCount" ||
+                            c.Name == "labelGuessedWordsCount" ||
+                            c.Name == "labelScoreCount")
+                        {
+                            c.BackColor = Color.Transparent;
+                        }
+                    }
 
                     if (c is TextBox tb)
                     {
@@ -116,24 +147,27 @@ namespace word_scramble
             }
             else
             {
-                this.BackColor = SystemColors.Control;
+                this.BackColor = originalFormBackColor;
 
-                foreach (Control c in this.Controls)
+                foreach (Control c in GetAllControls(this))
                 {
-                    if (c is Label)
-                        c.ForeColor = Color.Black;
+                    if (originalBackColors.TryGetValue(c, out Color backColor))
+                        c.BackColor = backColor;
 
-                    if (c is TextBox tb)
-                    {
-                        tb.BackColor = Color.White;
-                        tb.ForeColor = Color.Black;
-                    }
+                    if (originalForeColors.TryGetValue(c, out Color foreColor))
+                        c.ForeColor = foreColor;
+                }
+            }
+        }
 
-                    if (c is Button btn)
-                    {
-                        btn.BackColor = SystemColors.Control;
-                        btn.ForeColor = Color.Black;
-                    }
+        private IEnumerable<Control> GetAllControls(Control container)
+        {
+            foreach (Control c in container.Controls)
+            {
+                yield return c;
+                foreach (Control child in GetAllControls(c))
+                {
+                    yield return child;
                 }
             }
         }

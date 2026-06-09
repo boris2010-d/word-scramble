@@ -55,6 +55,7 @@ namespace word_scramble
             // 
             labelTitle.Anchor = AnchorStyles.Top;
             labelTitle.AutoSize = true;
+            labelTitle.BackColor = SystemColors.ActiveCaption;
             labelTitle.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Bold);
             labelTitle.Location = new Point(252, 36);
             labelTitle.Name = "labelTitle";
@@ -65,6 +66,7 @@ namespace word_scramble
             // labelAttempts
             // 
             labelAttempts.AutoSize = true;
+            labelAttempts.BackColor = SystemColors.ActiveCaption;
             labelAttempts.Location = new Point(67, 116);
             labelAttempts.Name = "labelAttempts";
             labelAttempts.Size = new Size(73, 20);
@@ -74,6 +76,8 @@ namespace word_scramble
             // labelAttemptsCount
             // 
             labelAttemptsCount.AutoSize = true;
+            labelAttemptsCount.BackColor = Color.White;
+            labelAttemptsCount.ForeColor = Color.Black;
             labelAttemptsCount.Location = new Point(146, 116);
             labelAttemptsCount.Name = "labelAttemptsCount";
             labelAttemptsCount.Size = new Size(17, 20);
@@ -83,6 +87,7 @@ namespace word_scramble
             // labelGuessedWordsCount
             // 
             labelGuessedWordsCount.AutoSize = true;
+            labelGuessedWordsCount.BackColor = SystemColors.ButtonHighlight;
             labelGuessedWordsCount.Location = new Point(567, 116);
             labelGuessedWordsCount.Name = "labelGuessedWordsCount";
             labelGuessedWordsCount.Size = new Size(17, 20);
@@ -110,6 +115,7 @@ namespace word_scramble
             // labelGuessedWords
             // 
             labelGuessedWords.AutoSize = true;
+            labelGuessedWords.BackColor = SystemColors.ActiveCaption;
             labelGuessedWords.Location = new Point(450, 116);
             labelGuessedWords.Name = "labelGuessedWords";
             labelGuessedWords.Size = new Size(111, 20);
@@ -125,6 +131,7 @@ namespace word_scramble
             // 
             // textBoxFailedAttempts
             // 
+            textBoxFailedAttempts.BackColor = SystemColors.Window;
             textBoxFailedAttempts.Location = new Point(265, 274);
             textBoxFailedAttempts.Multiline = true;
             textBoxFailedAttempts.Name = "textBoxFailedAttempts";
@@ -134,27 +141,29 @@ namespace word_scramble
             // 
             // buttonCheck
             // 
+            buttonCheck.BackColor = Color.Green;
             buttonCheck.Location = new Point(413, 165);
             buttonCheck.Name = "buttonCheck";
             buttonCheck.Size = new Size(94, 29);
             buttonCheck.TabIndex = 8;
             buttonCheck.Text = "Check";
-            buttonCheck.UseVisualStyleBackColor = true;
+            buttonCheck.UseVisualStyleBackColor = false;
             buttonCheck.Click += buttonCheck_Click;
             // 
             // buttonSkip
             // 
+            buttonSkip.BackColor = Color.Green;
             buttonSkip.Location = new Point(413, 200);
             buttonSkip.Name = "buttonSkip";
             buttonSkip.Size = new Size(94, 29);
             buttonSkip.TabIndex = 9;
             buttonSkip.Text = "Skip";
-            buttonSkip.UseVisualStyleBackColor = true;
+            buttonSkip.UseVisualStyleBackColor = false;
             buttonSkip.Click += buttonSkip_Click;
             // 
             // buttonDarkMode
             // 
-            buttonDarkMode.Location = new Point(20, 20);
+            buttonDarkMode.Location = new Point(43, 36);
             buttonDarkMode.Name = "buttonDarkMode";
             buttonDarkMode.Size = new Size(120, 30);
             buttonDarkMode.TabIndex = 0;
@@ -164,6 +173,7 @@ namespace word_scramble
             // labelScore
             // 
             labelScore.AutoSize = true;
+            labelScore.BackColor = SystemColors.ActiveCaption;
             labelScore.Location = new Point(67, 169);
             labelScore.Name = "labelScore";
             labelScore.Size = new Size(49, 20);
@@ -173,6 +183,7 @@ namespace word_scramble
             // labelScoreCount
             // 
             labelScoreCount.AutoSize = true;
+            labelScoreCount.BackColor = SystemColors.ButtonHighlight;
             labelScoreCount.Location = new Point(123, 169);
             labelScoreCount.Name = "labelScoreCount";
             labelScoreCount.Size = new Size(17, 20);
@@ -183,6 +194,7 @@ namespace word_scramble
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Info;
             ClientSize = new Size(782, 403);
             Controls.Add(labelScoreCount);
             Controls.Add(labelScore);
