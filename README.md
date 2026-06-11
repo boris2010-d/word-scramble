@@ -1,53 +1,154 @@
-Word Scramble
-A simple and fun C# Windows Forms game where the player must guess the correct word from its scrambled version.
+# Word Scramble Game
 
-✨ Features
-Loads words from category files (animals.txt, food.txt, cities.txt)
+A simple Windows Forms application written in **C# (.NET Framework)** where players must guess scrambled words from different categories.
 
-Randomly scrambles each word
+## Features
 
-Tracks:
+* 🎮 Word scramble gameplay
+* 📂 Multiple categories:
 
-Attempts
+  * Animals
+  * Food
+  * Cities
+* 🎲 Random word selection and scrambling
+* 📊 Score tracking
+* ✅ Correct and incorrect attempt statistics
+* ⏭️ Skip word functionality
+* 🌙 Dark Mode support
+* 📋 Failed attempts history
+* 📄 External word lists stored in text files
 
-Score
+---
 
-Correctly guessed words
+## How It Works
 
-Shows a list of failed attempts
+1. Select a category from the dropdown menu.
+2. A scrambled word is displayed.
+3. Enter your guess in the text box.
+4. Press **Check**:
 
-Buttons for Check and Skip
+   * Correct answer → +10 points
+   * Wrong answer → -5 points
+5. Press **Skip** to load a new word:
 
-Clean and simple UI
+   * Skip penalty → -2 points
+6. Track your progress through:
 
-Optional Dark Mode for better visual experience
+   * Total attempts
+   * Guessed words
+   * Score
 
-🎮 How to Play
-Look at the scrambled word on the screen.
+---
 
-Type your guess in the input box.
+## Project Structure
 
-Press Check to submit your answer.
+```text
+word_scramble/
+│
+├── IndexForm.cs
+├── animals.txt
+├── food.txt
+├── cities.txt
+├── words.txt
+└── README.md
+```
 
-If you don’t know the word, press Skip to move to the next one.
+### Text Files
 
-Continue until you finish all words in the category.
+The game loads words from external text files:
 
-📁 Project Structure
-IndexForm.cs — main game logic
+* `animals.txt`
+* `food.txt`
+* `cities.txt`
 
-IndexForm.Designer.cs — UI layout and control initialization
+Each file should contain one word per line.
 
-Program.cs / StartUp.cs — application startup logic
+Example:
 
-animals.txt / food.txt / cities.txt — word lists for each category
+```text
+dog
+cat
+elephant
+lion
+tiger
+```
 
-word-scramble.csproj — project configuration
+---
 
-🛠 Requirements
-.NET 6 or later
+## Technologies Used
 
-Windows operating system
+* C#
+* Windows Forms (WinForms)
+* .NET Framework
+* System.Drawing
+* System.IO
+* LINQ
 
-Visual Studio with WinForms support
+---
+
+## Scoring System
+
+| Action         | Points |
+| -------------- | ------ |
+| Correct answer | +10    |
+| Wrong answer   | -5     |
+| Skip word      | -2     |
+
+---
+
+## Dark Mode
+
+The application includes a Dark Mode feature that:
+
+* Changes the form background
+* Updates button colors
+* Updates text box colors
+* Adjusts label text colors
+* Restores original colors when disabled
+
+---
+
+## Error Handling
+
+If a category file is missing, the application will not crash. Instead, it loads a placeholder word:
+
+```csharp
+words = new List<string> { "error" };
+```
+
+This ensures the game remains stable even when files are unavailable.
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/word-scramble.git
+```
+
+2. Open the solution in Visual Studio.
+
+3. Make sure the following files are present in the output directory:
+
+```text
+animals.txt
+food.txt
+cities.txt
+```
+
+4. Build and run the project.
+
+---
+
+## Future Improvements
+
+* Add difficulty levels
+* Timer mode
+* High score system
+* Sound effects
+* More word categories
+* Multiplayer support
+* Save statistics between sessions
 
