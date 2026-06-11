@@ -1,32 +1,53 @@
-# Word Scramble
+Word Scramble
+A simple and fun C# Windows Forms game where the player must guess the correct word from its scrambled version.
 
-A simple C# Windows Forms game where the player must guess the correct word from a scrambled version.
+✨ Features
+Loads words from category files (animals.txt, food.txt, cities.txt)
 
-## Features
-- Loads words from words.txt
-- Scrambles each word randomly
-- Tracks attempts and guessed words
-- Shows failed attempts
-- Buttons for **Check** and **Skip**
-- Clean and simple UI
+Randomly scrambles each word
 
-## How to Play
-1. Look at the scrambled word.
-2. Type your guess in the input box.
-3. Press **Check** to submit.
-4. If you don't know the word, press **Skip**.
-5. Continue until you guess all words.
+Tracks:
 
-## Files
-- IndexForm.cs — main game logic  
-- IndexForm.Designer.cs — UI layout  
-- StartUp.cs — startup logic  
-- words.txt — list of words  
-- word-scramble.csproj — project configuration  
+Attempts
 
-## Requirements
-- .NET 6 or later
-- Windows Forms
+Score
 
-## Author
-Created by Boris.
+Correctly guessed words
+
+Shows a list of failed attempts
+
+Buttons for Check and Skip
+
+Clean and simple UI
+
+Optional Dark Mode for better visual experience
+
+🎮 How to Play
+Look at the scrambled word on the screen.
+
+Type your guess in the input box.
+
+Press Check to submit your answer.
+
+If you don’t know the word, press Skip to move to the next one.
+
+Continue until you finish all words in the category.
+
+📁 Project Structure
+IndexForm.cs — main game logic
+
+IndexForm.Designer.cs — UI layout and control initialization
+
+Program.cs / StartUp.cs — application startup logic
+
+animals.txt / food.txt / cities.txt — word lists for each category
+
+word-scramble.csproj — project configuration
+
+🛠 Requirements
+.NET 6 or later
+
+Windows operating system
+
+Visual Studio with WinForms support
+
