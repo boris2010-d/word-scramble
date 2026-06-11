@@ -49,6 +49,7 @@ namespace word_scramble
             buttonDarkMode = new Button();
             labelScore = new Label();
             labelScoreCount = new Label();
+            comboCategory = new ComboBox();
             SuspendLayout();
             // 
             // labelTitle
@@ -88,7 +89,7 @@ namespace word_scramble
             // 
             labelGuessedWordsCount.AutoSize = true;
             labelGuessedWordsCount.BackColor = SystemColors.ButtonHighlight;
-            labelGuessedWordsCount.Location = new Point(567, 116);
+            labelGuessedWordsCount.Location = new Point(688, 116);
             labelGuessedWordsCount.Name = "labelGuessedWordsCount";
             labelGuessedWordsCount.Size = new Size(17, 20);
             labelGuessedWordsCount.TabIndex = 3;
@@ -116,7 +117,7 @@ namespace word_scramble
             // 
             labelGuessedWords.AutoSize = true;
             labelGuessedWords.BackColor = SystemColors.ActiveCaption;
-            labelGuessedWords.Location = new Point(450, 116);
+            labelGuessedWords.Location = new Point(571, 116);
             labelGuessedWords.Name = "labelGuessedWords";
             labelGuessedWords.Size = new Size(111, 20);
             labelGuessedWords.TabIndex = 6;
@@ -174,7 +175,7 @@ namespace word_scramble
             // 
             labelScore.AutoSize = true;
             labelScore.BackColor = SystemColors.ActiveCaption;
-            labelScore.Location = new Point(67, 169);
+            labelScore.Location = new Point(329, 116);
             labelScore.Name = "labelScore";
             labelScore.Size = new Size(49, 20);
             labelScore.TabIndex = 10;
@@ -184,11 +185,21 @@ namespace word_scramble
             // 
             labelScoreCount.AutoSize = true;
             labelScoreCount.BackColor = SystemColors.ButtonHighlight;
-            labelScoreCount.Location = new Point(123, 169);
+            labelScoreCount.Location = new Point(384, 116);
             labelScoreCount.Name = "labelScoreCount";
             labelScoreCount.Size = new Size(17, 20);
             labelScoreCount.TabIndex = 11;
             labelScoreCount.Text = "0";
+            // 
+            // comboCategory
+            // 
+            comboCategory.FormattingEnabled = true;
+            comboCategory.Location = new Point(607, 38);
+            comboCategory.Name = "comboCategory";
+            comboCategory.Size = new Size(151, 28);
+            comboCategory.TabIndex = 12;
+            comboCategory.SelectedIndexChanged += comboCategory_SelectedIndexChanged;
+
             // 
             // IndexForm
             // 
@@ -196,6 +207,7 @@ namespace word_scramble
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
             ClientSize = new Size(782, 403);
+            Controls.Add(comboCategory);
             Controls.Add(labelScoreCount);
             Controls.Add(labelScore);
             Controls.Add(buttonDarkMode);
@@ -223,5 +235,6 @@ namespace word_scramble
 
         private Label labelScore;
         private Label labelScoreCount;
+        private ComboBox comboCategory;
     }
 }
